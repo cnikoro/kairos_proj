@@ -8,3 +8,6 @@ media
 
 # environment variables #
 .env
+
+# vim swap files #
+*.swp

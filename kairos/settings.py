@@ -13,12 +13,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import environ
 
-<<<<<<< HEAD
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-env = environ.Env()
-=======
 env = environ.Env(
     DEBUG=(bool, False)
 )
@@ -27,7 +21,6 @@ env = environ.Env(
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Take environment variables from .env file
->>>>>>> 778a1ac87ddcd92304dc413efa15c959d403d259
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
@@ -37,16 +30,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-<<<<<<< HEAD
-DEBUG = env('DEBUG')==True
-
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
-=======
 DEBUG = env('DEBUG') == True
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(',')
->>>>>>> 778a1ac87ddcd92304dc413efa15c959d403d259
-
 
 # Application definition
 
@@ -74,7 +60,7 @@ ROOT_URLCONF = 'kairos.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,7 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -136,14 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-<<<<<<< HEAD
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-=======
 STATICFILES_DIR = [
     BASE_DIR / "static",
 ]
->>>>>>> 778a1ac87ddcd92304dc413efa15c959d403d259
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
